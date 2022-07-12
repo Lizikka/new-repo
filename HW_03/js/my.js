@@ -2,11 +2,11 @@ const firstName = prompt ("Enter Your  first name");
 
 const lastName = prompt ("Enter Your  last name");
 
-const dateOfBirth =  Number (prompt ("Enter  date of Your bird "));
+const dateOfBirth =  Number (prompt ("Enter  date of Your birth "));
 
-const monthOfBirth = Number (prompt ("Enter month of Your bird "));
+const monthOfBirth = Number (prompt ("Enter month of Your birth "));
 
-const yearOfBirth = Number (prompt ("Enter  year  of Your bird "));
+const yearOfBirth = Number (prompt ("Enter  year  of Your birth "));
 
 const YEAR = 2022 ;
 
