@@ -1,7 +1,5 @@
 const string = prompt ("Введите произвольную строку");
-
 const ID = Number (prompt ("ID"));
-
 
 if (ID == 1) {
    let a = prompt ("Unicod  якого символу треба вивести? ")
