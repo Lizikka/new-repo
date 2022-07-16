@@ -1,15 +1,13 @@
-const string = "How much is the fish? ";
-prompt ("How much is the fish? ");
-const ID = Number (prompt ("Enter ID "));
+const string = prompt ("Введите произвольную строку");
+const ID = Number (prompt ("ID"));
+let a = prompt ("Unicod  якого символу треба вивести? "); alert (string.charCodeAt (a));
 
-
-if ((ID == "1" )) alert (string.charCodeAt (1));
-if ((ID == "2" )) alert (string.slice(0, 2) + string.slice (3, 22));
+let b =prompt ("Який символ видалити? ") ;alert (string.slice(0, b-1) + string.slice (b, string.length));
 arr = [":-)", "D)", ":)", ";)", ":P", ":]", ":-D", ":-(", ";-)", ";-P",  ];
 let smileIndex = getRandomIntInclusive(0, 9);
-if ((ID == "3" )) alert (string.replace ( string[2], arr[smileIndex]));
+let c = prompt ("Який символ замінити на смайлик? ") ; alert (string.replace ( string[c], arr[smileIndex]));
 let string1 = string.replace(/\s/g, '')
-if ((ID == "4" )) alert (string1.length);
+alert (string1.length);
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
