@@ -14,10 +14,10 @@ const colors = [`#f44336`, `#ff9800`, `#ffeb3b`, `#4caf50`, `#03a9f4`, `#3f51b5`
 
 let render = [];
 for(i=0; i<rainbow.length; i++){
-    render.push(`<span class="rainbow__item">
-        <span  class="item__circle" style="background: ${colors[i]} "  ></span>
+    render.push(`<div class="rainbow__item">
+        <span  class="item__circle" style="background: ${colors[i]} ; width: 30px; height:30px; border-radius:50%"  >jjjjjj</span>
         <span>${rainbow[i]}</span>
-    </span>`);
+    </div>`);
 }
 
 
