@@ -1,0 +1,8 @@
+.first {
+    background: red;
+    transition: 2s;
+}
+.last {
+    background: green;
+    transition: 2s;
+}

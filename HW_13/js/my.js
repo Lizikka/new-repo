@@ -5,7 +5,7 @@ const obj = {
         x: 20,
         z: 30
     },
-    foo2: {
+    footer: { 
         k: 23,
         p: 13
     }
