@@ -32,7 +32,7 @@ const bankData = {
 const  getMoney = () => new Promise((resolve, reject) => {
     const userChoice = confirm (`Подивитися баланс карти?`);
     userChoice ? resolve() : reject();
-})
+});
 
 getMoney()
     .then(
@@ -42,7 +42,7 @@ getMoney()
             let avaliableUserCurrencies = Object.keys(userData);
 
             do{
-                currency = prompt(`Введіть назву валюти: ${avaliableUserCurrencies.join(`, `)}`, avaliableUserCurrencies)
+                currency = prompt(`Введіть назву валюти: ${avaliableUserCurrencies.join(`, `)}`, avaliableUserCurrencies[0])
                 if (currency) currency = currency.replaceAll(` `, ``).toUpperCase();
             } while(!avaliableUserCurrencies.includes(currency));
 
