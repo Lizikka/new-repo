@@ -1,14 +1,14 @@
 const jokesCategories = document.querySelector(`#jokesCategories`)
 const jokesList = document.querySelector(`#jokesList`)
 
-const getData = url => fetch(url)
+const getFile = url => fetch(url)
     .then(data => data.ok ? data.json (): Promise.catch(data.statusText))
     .catch(err => console.log(`In catch: ${err}`));
 
 
 
 const renderFormCats = () => {
-    let cats = getData(`https://api.chucknorris.io/jokes/categories`)
+    let cats = getFile(`https://api.chucknorris.io/jokes/categories`)
         .then(cats => jokesCategories.innerHTML = cats
             .map(cat => `<option value="${cat}">${cat}</option>`)
             .join(``)
@@ -19,7 +19,7 @@ renderFormCats()
 
 
 jokesCategories.addEventListener(`change`, ()=>{
-    getFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.value}`)
+    getFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.innerHTML}`)
         .then(data => {
             document
                 .querySelector(`option[value="${jokesCategories.value}"]`)
