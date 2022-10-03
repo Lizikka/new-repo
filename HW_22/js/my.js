@@ -19,7 +19,7 @@ renderFormCats()
 
 
 jokesCategories.addEventListener(`change`, ()=>{
-    getFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.innerHTML}`)
+    getFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.value}`)
         .then(data => {
             document
                 .querySelector(`option[value="${jokesCategories.value}"]`)
