@@ -1,0 +1,13 @@
+form{
+    display: block;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+tr, th , td{
+    border: 2px black solid;
+    padding: 5px 20px;
+}
