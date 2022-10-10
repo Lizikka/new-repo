@@ -39,12 +39,13 @@ renderTable()
 
 
 
-const renderHeroes = task => {
+
+const renderHeroes = obj => {
     let tr = document.querySelector(`tbody`);
     
-    tr.innerHTML = `<td>${task.name}</td>
-    <td>${task.comics}</td>
-    <td>${task.favourite}</td>`;
+    tr.innerHTML = `<td>${obj.name}</td>
+    <td>${obj.comics}</td>
+    <td>${obj.favourite}</td>`;
     
     tableHeroes.append(tr);
     
