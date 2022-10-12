@@ -7,26 +7,34 @@ const createHeroes = document.querySelector(`#formHeroes`)
 const selectComics = document.querySelector(`#selectComics`)
 const checkFavourite = document.querySelector(`#checkFavourite`)
 
+const controller = async (url, method=`GET`, obj) => {
+    let options = {
+        method: method,
+        headers: {
+            "Content-type": "application/json"
+        }
+    }
+
+    if(obj) options.body = JSON.stringify(obj);
+
+    let request = await fetch(url, options),
+        response = request.ok ? request.json() : Promise.reject();
+
+    return response;
+}
+
 const renderComics = async () => {
     try{
-        let reporters = await controller(API+`/heroes`);
-        checkFavourite.innerHTML = reporters
-            .map(item => `<option value="${item.comics}">${item.comics}</option>`)
+        let reporters = await controller(API+`/universes`);
+        selectComics.innerHTML = reporters
+            .map(item => `<option value="${item.name}">${item.name}</option>`)
             .join(``);
         
     } catch(err){}
 }
 renderComics();
 
-const renderFavourite = async () => {
-    try{
-        let favourite = await controller(API+`/heroes`);
-        checkFavourite.innerHTML = favourite
-            
 
-    } catch(err){}
-}
-renderFavourite();
 
 
 createHeroes.addEventListener(`submit`, async e=>{
@@ -35,6 +43,8 @@ createHeroes.addEventListener(`submit`, async e=>{
     let newTask = {
         name: nameHero.value,
         comics: selectComics.value,
+        
+        
         
 
         
@@ -53,21 +63,7 @@ createHeroes.addEventListener(`submit`, async e=>{
 
 })
 
-const controller = async (url, method=`GET`, obj) => {
-    let options = {
-        method: method,
-        headers: {
-            "Content-type": "application/json"
-        }
-    }
 
-    if(obj) options.body = JSON.stringify(obj);
-
-    let request = await fetch(url, options),
-        response = request.ok ? request.json() : Promise.reject();
-
-    return response;
-}
 
 
 const renderTable = () => {
@@ -95,8 +91,13 @@ const renderHeroes = obj => {
     <td>${obj.comics}</td>`;
 
     let tdFavourite = document.createElement(`td`);
-    tdFavourite.innerHTML = obj.favourite
+   
     // create favourite checkbox
+    let favInput = document.createElement("input");
+    favInput.type = "checkbox";
+    favInput.checked = obj.favourite;
+
+    tdFavourite.append(favInput);
 
     let tdBtn = document.createElement(`td`);
     let btnDelete = document.createElement(`button`);
@@ -111,7 +112,22 @@ const renderHeroes = obj => {
     tr.append(tdFavourite, tdBtn);
     
     tbody.append(tr);
+
+    favInput.addEventListener(`change`, () => {
+        fetch(API+`/heroes`, {
+        method: `PUT`,
+        body: JSON.stringify({
+            favourite: obj.favourite
+        }),
+        headers: {
+            "content-type": "application/json; charset=utf-8"
+        }
+    })
+        
+    })
 }
+
+
 
 const renderStorageHeroes = async () => {
     let heroes = await controller(API+`/heroes`);
