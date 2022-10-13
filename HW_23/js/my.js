@@ -43,7 +43,7 @@ createHeroes.addEventListener(`submit`, async e=>{
     let newTask = {
         name: nameHero.value,
         comics: selectComics.value,
-        favourite: 
+        favourite: checkFavourite.type
         
         
         
@@ -115,8 +115,8 @@ const renderHeroes = obj => {
     tbody.append(tr);
 
     favInput.addEventListener(`change`, ()=>{
-        controller(API+`/heroes/${obj.id}`, `PUT`);
-        obj.favourite
+        controller(API+`/heroes/${obj.id}`, `PUT`, {favourite: favInput.checked});
+       
     })
         
         
