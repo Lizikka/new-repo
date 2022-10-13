@@ -43,12 +43,7 @@ createHeroes.addEventListener(`submit`, async e=>{
     let newTask = {
         name: nameHero.value,
         comics: selectComics.value,
-        favourite: checkFavourite.type
-        
-        
-        
-
-        
+        favourite: checkFavourite.checked
     }
 
     let storageTasks = await controller(API+`/heroes`);
@@ -63,9 +58,6 @@ createHeroes.addEventListener(`submit`, async e=>{
     }
 
 })
-
-
-
 
 const renderTable = () => {
     let tableHeroes = document.createElement(`table`);
@@ -114,15 +106,12 @@ const renderHeroes = obj => {
     
     tbody.append(tr);
 
-    favInput.addEventListener(`change`, ()=>{
-        controller(API+`/heroes/${obj.id}`, `PUT`, {favourite: favInput.checked});
+    favInput.addEventListener(`change`, async ()=>{
+        await controller(API+`/heroes/${obj.id}`, `PUT`, {favourite: favInput.checked});
        
     })
         
-        
 }
-
-
 
 const renderStorageHeroes = async () => {
     let heroes = await controller(API+`/heroes`);
