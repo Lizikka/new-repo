@@ -1,0 +1,24 @@
+.block{
+    display: inline-block;
+    width: 25px;
+    height: 35px;
+    margin-left: 5px;
+}
+.block:first-of-type{
+    margin-left: 500px;
+}
+.colorBox {
+    display: inline-block;
+    width: 25px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
