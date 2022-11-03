@@ -1,22 +1,26 @@
-.block{
-    display: inline-block;
-    width: 25px;
-    height: 35px;
-    margin-left: 5px;
-}
-.block:first-of-type{
-    margin-left: 500px;
-}
-.colorBox {
-    display: inline-block;
-    width: 25px;
-    height: 35px;
-    margin-left: 5px;
+.wrapper{
+    margin: 10px auto;
+    width: fit-content;
+    text-align: center;
 }
 
+#carImg{
+    width: 100%;
+}
 
+#colorBtns{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 
-
+}
+.dot{
+    border: none;
+    width: 20px;
+    height: 30px;
+    margin: 0 3px;
+    border-radius: 3px;
+}
 
 
 
