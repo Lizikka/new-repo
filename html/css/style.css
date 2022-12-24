@@ -1,0 +1,19 @@
+.box{
+    background-color: aqua;
+    height: 2000px;
+    
+
+}
+.block{
+    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    /* position: absolute;
+   
+   margin-left: 50%;
+   margin-top: 50%; */
+   /* transform: -50% -50%; */
+    
+    
+}
